@@ -38,7 +38,12 @@ class Handler(QObject):
 # web.load(QUrl('https://maohupi.github.io/cvsArt/%E7%81%AB%E8%8A%B1/index.html'))
 
 ''' qurl '''
-web.load(QUrl.fromLocalFile(sys.argv[1]))
+if not len(sys.argv) > 1:
+    exit()
+filePath = sys.argv[1]
+filePath = os.path.abspath(filePath)
+print(filePath)
+web.load(QUrl.fromLocalFile(filePath))
 
 ''' fopen '''
 # file = open(sys.argv[1], 'r', encoding = 'utf-8')
